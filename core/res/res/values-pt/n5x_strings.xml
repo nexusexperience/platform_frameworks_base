@@ -25,4 +25,7 @@
     <string name="reboot_confirm" product="tablet">Seu tablet será reiniciado.</string>
     <string name="reboot_confirm" product="default">Seu telefone será reiniciado.</string>
     <string name="global_action_reboot">Reiniciar</string>
+
+    <!-- Text for progress dialog while formatting SD card [CHAR LIMIT=NONE] -->
+    <string name="progress_nomediapresent" product="default">Nenhuma mídia removível presente\u2026</string>
 </resources>
