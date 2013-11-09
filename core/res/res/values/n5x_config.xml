@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/* Copyright 2012, The Android Open Source Project
+/*
+** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -15,16 +16,10 @@
 ** limitations under the License.
 */
 -->
-<resources>
-  <!-- Reboot Menu -->
-  <java-symbol type="string" name="reboot_confirm" />
-  <java-symbol type="string" name="reboot_title" />
-  <java-symbol type="drawable" name="ic_lock_power_reboot" />
-  <java-symbol type="string" name="global_action_reboot" />
 
-  <!-- Fix Framework Reboot on format of SD card -->
-  <java-symbol type="string" name="progress_nomediapresent" />
-
-  <!-- Config IME switcher -->
-  <java-symbol type="bool" name="config_show_IMESwitcher" />
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Sets whether IME switcher on statusbar should be shown or not. -->
+    <bool name="config_show_IMESwitcher">true</bool>
 </resources>
