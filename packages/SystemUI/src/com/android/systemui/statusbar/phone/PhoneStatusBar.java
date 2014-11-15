@@ -3221,8 +3221,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
   
-        mClockEnabled = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_CLOCK, 1) != 0;
+        mClockEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_CLOCK, 1, UserHandle.USER_CURRENT) != 0;
         updateClockVisibility();
     }
 
@@ -3730,6 +3730,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         updatePublicMode();
         updateStackScrollerState(goingToFullShade);
         updateNotifications();
+        updateSettings();
         checkBarModes();
         updateCarrierLabelVisibility(false);
         updateMediaMetaData(false);
