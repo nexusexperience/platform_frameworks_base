@@ -103,12 +103,10 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
             mSeekBar.setOnSeekBarChangeListener(null);
         }
         mSeekBar = seekBar;
-        if (mSeekBar != null) {
-            mSeekBar.setOnSeekBarChangeListener(null);
-            mSeekBar.setMax(mMaxStreamVolume);
-            mSeekBar.setProgress(mLastProgress > -1 ? mLastProgress : mOriginalStreamVolume);
-            mSeekBar.setOnSeekBarChangeListener(this);
-        }
+        mSeekBar.setOnSeekBarChangeListener(null);
+        mSeekBar.setMax(mMaxStreamVolume);
+        mSeekBar.setProgress(mLastProgress > -1 ? mLastProgress : mOriginalStreamVolume);
+        mSeekBar.setOnSeekBarChangeListener(this);
     }
 
     @Override
