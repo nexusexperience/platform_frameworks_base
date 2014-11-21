@@ -131,10 +131,8 @@ public class DeviceUtils {
                         && !deviceSupportsTorch(context)
                 || action.equals(nxActionConstants.ACTION_VIB)
                         && !deviceSupportsVibrator(context)
-                || action.equals(nxActionConstants.ACTION_VIB_SILENT)
-                        && !deviceSupportsVibrator(context)
-                || action.equals(nxActionConstants.ACTION_SMART_PULLDOWN)
-                        && isTablet(context)) {
+                || action.equals(nxConstants.ACTION_VIB_SILENT)
+                        && !deviceSupportsVibrator(context)) {
             return false;
         }
         return true;
