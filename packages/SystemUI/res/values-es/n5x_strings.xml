@@ -18,5 +18,6 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="screenshot_delete_confirmation">Captura de Pantalla eliminada</string>
+  <string name="screenshot_delete_confirmation">Captura de pantalla eliminada</string>
+  <string name="clear_recents">Borrar todo</string>
 </resources>

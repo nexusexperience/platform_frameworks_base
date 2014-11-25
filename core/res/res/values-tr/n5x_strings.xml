@@ -22,6 +22,13 @@
   <string name="reboot_title">Yeniden Başlat</string>
   <string name="reboot_confirm" product="tablet">Tabletin yeniden başlatılacak.</string>
   <string name="reboot_confirm" product="default">Telefonun yeniden başlatılacak.</string>
+  <string name="reboot_progress">Yeniden Başlatılıyor\u2026</string>
   <string name="global_action_reboot">Yeniden Başlat</string>
   <string name="progress_nomediapresent" product="default">Kaldırılabilir medya aygıtı yok\u2026</string>
+  <string name="reboot_reboot">Yeniden Başlat</string>
+  <string name="reboot_recovery">Kurtarma Modu</string>
+  <string name="reboot_bootloader">Önyükleme yükleyicisi</string>
+  <string name="reboot_download">İndirme Modu</string>
+  <string name="reboot_soft">Hafif Yeniden Başlatma</string>
+  <string name="app_killed_message">Uygulama kapatıldı</string>
 </resources>
