@@ -19,4 +19,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="screenshot_delete_confirmation">Capture d\'écran supprimée</string>
+  <string name="clear_recents">Fermer récents</string>
 </resources>
