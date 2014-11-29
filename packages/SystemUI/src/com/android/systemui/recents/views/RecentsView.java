@@ -29,6 +29,7 @@ import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -282,6 +283,12 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 Settings.System.CLEAR_ALL_RECENTS_ENABLED, 1) != 0;
     }
 
+    /** Move Clear All Recents to left */
+    public boolean leftClearAllRecents() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LEFT_CLEAR_ALL_RECENTS, 0) != 0;
+    }
+
     /** Sets the visibility of the search bar */
     public void setSearchBarVisibility(int visibility) {
         if (mSearchBar != null) {
@@ -319,6 +326,17 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
                     mClearRecents.getLayoutParams();
             params.topMargin = taskStackBounds.top;
+            if (leftClearAllRecents()) {
+                //set gravity
+                params.gravity = Gravity.BOTTOM | Gravity.LEFT;
+                //set margins
+                params.setMargins(85, 0, 0, 165);
+            } else {
+                //set gravity
+                params.gravity = Gravity.BOTTOM | Gravity.CENTER;
+                //set margins
+                params.setMargins(0, 0, 0, 165);
+            }
             mClearRecents.setLayoutParams(params);
             mClearRecents.setOutlineProvider(new ViewOutlineProvider() {
                 @Override

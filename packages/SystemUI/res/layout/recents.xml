@@ -43,8 +43,7 @@
         android:id="@+id/clear_recents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="56dp"
+        android:layout_gravity="bottom"
         android:translationZ="5dp" >
 
         <ImageView

@@ -2966,6 +2966,12 @@ public final class Settings {
         public static final String CLEAR_ALL_RECENTS_ENABLED = "clear_all_recents_enabled";
 
         /**
+         * Move Clear All Recents to left
+         * @hide
+         */
+        public static final String LEFT_CLEAR_ALL_RECENTS = "left_clear_all_recents";
+
+        /**
          * Whether to mute annoying notifications
          * @hide
          */
