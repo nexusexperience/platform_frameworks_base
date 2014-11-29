@@ -253,6 +253,12 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         return mSearchBar != null;
     }
 
+    /** Check if Clear All Recents is enabled */
+    public boolean clearAllRecentsEnabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.CLEAR_ALL_RECENTS_ENABLED, 1) != 0;
+    }
+
     /** Sets the visibility of the search bar */
     public void setSearchBarVisibility(int visibility) {
         if (mSearchBar != null) {
@@ -282,6 +288,9 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         Rect taskStackBounds = new Rect();
         mConfig.getTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, taskStackBounds);
+
+        mClearRecents.measure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
+                MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
 
         if (mClearRecents != null) {
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)

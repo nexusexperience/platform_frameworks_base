@@ -2966,6 +2966,12 @@ public final class Settings {
         public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
 
         /**
+         * Clear Recents enabler
+         * @hide
+         */
+        public static final String CLEAR_ALL_RECENTS_ENABLED = "clear_all_recents_enabled";
+
+        /**
          * Whether to mute annoying notifications
          * @hide
          */
