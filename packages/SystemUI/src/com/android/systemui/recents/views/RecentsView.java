@@ -31,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.systemui.recents.Constants;
 import com.android.systemui.recents.RecentsConfiguration;
@@ -304,10 +305,10 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 mConfig.systemInsets.right, taskStackBounds);
 
         if (mClearRecents != null) {
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)
                     mClearRecents.getLayoutParams();
-            params.topMargin = taskStackBounds.top;
-            params.rightMargin = width - taskStackBounds.right;
+
+            params.bottomMargin = mConfig.systemInsets.bottom;
             mClearRecents.setLayoutParams(params);
         }
 
