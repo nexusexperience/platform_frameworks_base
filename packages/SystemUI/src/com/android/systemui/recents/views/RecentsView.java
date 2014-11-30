@@ -300,19 +300,25 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
 
         if (mClearRecents != null) {
+            int mPid;
+            final float dp = getResources().getDisplayMetrics().density;
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
                     mClearRecents.getLayoutParams();
-            params.topMargin = taskStackBounds.top;
+            //params.topMargin = taskStackBounds.top;
+            //params.bottomMargin = mConfig.systemInsets.bottom;
             if (leftClearAllRecents()) {
+                final int p = (int)(10*dp);
                 //set gravity
                 params.gravity = Gravity.BOTTOM | Gravity.LEFT;
                 //set margins
-                params.setMargins(85, 0, 0, 165);
+                params.leftMargin = (int)(36*dp);
+                params.bottomMargin = mConfig.systemInsets.bottom + (int)(12*dp);
             } else {
                 //set gravity
                 params.gravity = Gravity.BOTTOM | Gravity.CENTER;
                 //set margins
-                params.setMargins(0, 0, 0, 165);
+                params.leftMargin = 0;
+                params.bottomMargin = mConfig.systemInsets.bottom + (int)(12*dp);
             }
             mClearRecents.setLayoutParams(params);
             mClearRecents.setOutlineProvider(new ViewOutlineProvider() {
