@@ -1173,7 +1173,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private View.OnClickListener mRecentsClickListener = new View.OnClickListener() {
         public void onClick(View v) {
             awakenDreams();
-            if(isRecentAppsVisible() && hasRecentApps()) {
+            if(isRecentAppsVisible() && hasRecentApps() && clearAllRecentsNavbarEnabled()) {
                 clearRecentApps();
             } else {
                 toggleRecentApps();
@@ -3363,6 +3363,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 Settings.System.STATUS_BAR_CLOCK, 1, UserHandle.USER_CURRENT) != 0;
         updateClockVisibility();
     }
+
+    /** Check if Clear All Recents is enabled */
+    public boolean clearAllRecentsNavbarEnabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED, 1) != 0;
+    }
+
 
     private void setControllerUsers() {
         if (mZenModeController != null) {

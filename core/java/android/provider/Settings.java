@@ -2966,10 +2966,22 @@ public final class Settings {
         public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
 
         /**
+         * Clear Recents mode
+         * @hide
+         */
+        public static final String CLEAR_ALL_RECENTS_MODE = "clear_all_recents_navbar_enabled";
+
+        /**
          * Clear Recents enabler
          * @hide
          */
         public static final String CLEAR_ALL_RECENTS_ENABLED = "clear_all_recents_enabled";
+
+        /**
+         * Clear Recents in navbar enabler
+         * @hide
+         */
+        public static final String CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
 
         /**
          * Move Clear All Recents to left
