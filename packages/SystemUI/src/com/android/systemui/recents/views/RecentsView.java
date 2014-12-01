@@ -271,7 +271,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     /** Check if Clear All Recents is enabled */
     public boolean clearAllRecentsEnabled() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.CLEAR_ALL_RECENTS_ENABLED, 1) != 0;
+                Settings.System.CLEAR_ALL_RECENTS_ENABLED, 0) != 0;
     }
 
     /** Move Clear All Recents to left */
