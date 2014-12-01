@@ -3053,6 +3053,12 @@ public final class Settings {
         public static final String CLEAR_ALL_RECENTS_ENABLED = "clear_all_recents_enabled";
 
         /**
+         * Clear Recents in navbar enabler
+         * @hide
+         */
+        public static final String CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
+
+        /**
          * Move Clear All Recents to left
          * @hide
          */
