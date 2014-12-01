@@ -18,6 +18,7 @@ package com.android.systemui.recents;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -30,7 +31,6 @@ import android.view.animation.Interpolator;
 import com.android.systemui.R;
 import com.android.systemui.recents.misc.Console;
 import com.android.systemui.recents.misc.SystemServicesProxy;
-
 
 /** A static Recents configuration for the current context
  * NOTE: We should not hold any references to a Context from a static instance */
@@ -66,6 +66,7 @@ public class RecentsConfiguration {
     /** Search bar */
     int searchBarAppWidgetId = -1;
     public int searchBarSpaceHeightPx;
+    int searchwidget = 1;
 
     /** Task stack */
     public int taskStackScrollDuration;
@@ -168,6 +169,7 @@ public class RecentsConfiguration {
     void update(Context context) {
         SharedPreferences settings = context.getSharedPreferences(context.getPackageName(), 0);
         Resources res = context.getResources();
+        ContentResolver resolver = context.getContentResolver();
         DisplayMetrics dm = res.getDisplayMetrics();
 
         // Debug mode
@@ -200,6 +202,7 @@ public class RecentsConfiguration {
         // Search Bar
         searchBarSpaceHeightPx = res.getDimensionPixelSize(R.dimen.recents_search_bar_space_height);
         searchBarAppWidgetId = settings.getInt(Constants.Values.App.Key_SearchAppWidgetId, -1);
+        searchwidget = Settings.System.getInt(resolver,Settings.System.SEARCH_WIDGET_ENABLED, 1);
 
         // Task stack
         taskStackScrollDuration =
@@ -317,6 +320,11 @@ public class RecentsConfiguration {
         return searchBarAppWidgetId >= 0;
     }
 
+    /** Returns whether the search bar app widget enabled. */
+    public boolean enableSearchBarAppWidget() {
+        return searchwidget >= 1;
+    }
+
     /** Returns whether the status bar scrim should be animated when shown for the first time. */
     public boolean shouldAnimateStatusBarScrim() {
         return launchedFromHome;
@@ -368,7 +376,7 @@ public class RecentsConfiguration {
                                    Rect searchBarSpaceBounds) {
         // Return empty rects if search is not enabled
         int searchBarSize = searchBarSpaceHeightPx;
-        if (!Constants.DebugFlags.App.EnableSearchLayout || !hasSearchBarAppWidget()) {
+        if (!Constants.DebugFlags.App.EnableSearchLayout || !hasSearchBarAppWidget() || !enableSearchBarAppWidget()) {
             searchBarSize = 0;
         }
 

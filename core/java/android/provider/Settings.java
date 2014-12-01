@@ -3028,6 +3028,12 @@ public final class Settings {
         public static final String LEFT_CLEAR_ALL_RECENTS = "left_clear_all_recents";
 
         /**
+         * Search widget enabler
+         * @hide
+         */
+        public static final String SEARCH_WIDGET_ENABLED = "search_widget_enabled";
+
+        /**
          * Whether to mute annoying notifications
          * @hide
          */

@@ -267,7 +267,7 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
                 mEmptyView = mEmptyViewStub.inflate();
             }
             mEmptyView.setVisibility(View.VISIBLE);
-            mRecentsView.setSearchBarVisibility(View.GONE);
+                mRecentsView.setSearchBarVisibility();
             findViewById(R.id.clear_recents).setVisibility(View.GONE);
         } else {
             if (mEmptyView != null) {
@@ -279,7 +279,7 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
                 findViewById(R.id.clear_recents).setVisibility(View.GONE);
             }
             if (mRecentsView.hasSearchBar()) {
-                mRecentsView.setSearchBarVisibility(View.VISIBLE);
+                mRecentsView.setSearchBarVisibility();
             } else {
                 addSearchBarAppWidgetView();
             }

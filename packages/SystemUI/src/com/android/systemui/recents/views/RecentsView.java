@@ -280,10 +280,20 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 Settings.System.LEFT_CLEAR_ALL_RECENTS, 0) != 0;
     }
 
+    /** Check if Search widget is enabled */
+    public boolean searchWidgetEnabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SEARCH_WIDGET_ENABLED, 1) != 0;
+    }
+
     /** Sets the visibility of the search bar */
-    public void setSearchBarVisibility(int visibility) {
+    public void setSearchBarVisibility() {
         if (mSearchBar != null) {
-            mSearchBar.setVisibility(visibility);
+            if (searchWidgetEnabled() && !mConfig.launchedWithNoRecentTasks) {
+                mSearchBar.setVisibility(View.VISIBLE);
+            } else {
+                mSearchBar.setVisibility(View.GONE);
+            }
             // Always bring the search bar to the top
             mSearchBar.bringToFront();
         }
