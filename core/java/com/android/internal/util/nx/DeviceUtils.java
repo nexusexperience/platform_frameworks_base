@@ -131,7 +131,7 @@ public class DeviceUtils {
                         && !deviceSupportsTorch(context)
                 || action.equals(nxActionConstants.ACTION_VIB)
                         && !deviceSupportsVibrator(context)
-                || action.equals(nxConstants.ACTION_VIB_SILENT)
+                || action.equals(nxActionConstants.ACTION_VIB_SILENT)
                         && !deviceSupportsVibrator(context)) {
             return false;
         }
