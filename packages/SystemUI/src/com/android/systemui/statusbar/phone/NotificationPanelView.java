@@ -30,6 +30,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.MathUtils;
@@ -1947,7 +1948,7 @@ public class NotificationPanelView extends PanelView implements
             mOneFingerQuickSettingsInterceptMode = Settings.System.getIntForUser(
                     resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
                     ONE_FINGER_QS_INTERCEPT_END, UserHandle.USER_CURRENT);
-            mDoubleTapToSleepEnabled = Settings.System.getInt(
+            mDoubleTapToSleepEnabled = Settings.System.getIntForUser(
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1,
                     UserHandle.USER_CURRENT) == 1;
             mStatusBarLockedOnSecureKeyguard = Settings.Secure.getIntForUser(
