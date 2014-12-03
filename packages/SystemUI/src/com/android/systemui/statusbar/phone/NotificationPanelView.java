@@ -633,7 +633,7 @@ public class NotificationPanelView extends PanelView implements
         }
 
         boolean isQSEventBlocked = mLockPatternUtils.isSecure()
-                && mStatusBarLockedOnSecureKeyguard && mKeyguardShowing;
+                && !mStatusBarLockedOnSecureKeyguard && mKeyguardShowing;
 
         if (event.getActionMasked() == MotionEvent.ACTION_DOWN && getExpandedFraction() == 1f
                 && mStatusBar.getBarState() != StatusBarState.KEYGUARD && !mQsExpanded
@@ -1952,7 +1952,7 @@ public class NotificationPanelView extends PanelView implements
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1,
                     UserHandle.USER_CURRENT) == 1;
             mStatusBarLockedOnSecureKeyguard = Settings.Secure.getIntForUser(
-                    resolver, Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1,
+                    resolver, Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 0,
                     UserHandle.USER_CURRENT) == 1;
         }
     }
