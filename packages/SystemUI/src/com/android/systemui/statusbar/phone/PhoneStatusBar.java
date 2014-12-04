@@ -352,6 +352,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // ticker
     private boolean mTickerEnabled;
+    private boolean mTickerEnabler;
     private Ticker mTicker;
     private View mTickerView;
     private boolean mTicking;
@@ -416,6 +417,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUSBAR_CLOCK_STYLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ENABLE_TICKER), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -841,7 +845,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         R.id.keyguard_indication_text));
         mKeyguardBottomArea.setKeyguardIndicationController(mKeyguardIndicationController);
 
-        mTickerEnabled = res.getBoolean(R.bool.enable_ticker);
+        mTickerEnabled = true;
+
         if (mTickerEnabled) {
             final ViewStub tickerStub = (ViewStub) mStatusBarView.findViewById(R.id.ticker_stub);
             if (tickerStub != null) {
@@ -2967,7 +2972,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     @Override
     protected void tick(StatusBarNotification n, boolean firstTime) {
-        if (!mTickerEnabled) return;
+        if (!mTickerEnabled || !mTickerEnabler) return;
 
         // no ticking in lights-out mode
         if (!areLightsOn()) return;
@@ -2994,14 +2999,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private class MyTicker extends Ticker {
         MyTicker(Context context, View sb) {
             super(context, sb);
-            if (!mTickerEnabled) {
+            if (!mTickerEnabled || !mTickerEnabler) {
                 Log.w(TAG, "MyTicker instantiated with mTickerEnabled=false", new Throwable());
             }
         }
 
         @Override
         public void tickerStarting() {
-            if (!mTickerEnabled) return;
+            if (!mTickerEnabled || !mTickerEnabler) return;
             mTicking = true;
             mStatusBarContents.setVisibility(View.GONE);
             mCenterClockLayout.setVisibility(View.GONE);
@@ -3013,7 +3018,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         @Override
         public void tickerDone() {
-            if (!mTickerEnabled) return;
+            if (!mTickerEnabled || !mTickerEnabler) return;
             mStatusBarContents.setVisibility(View.VISIBLE);
             mCenterClockLayout.setVisibility(View.VISIBLE);
             mTickerView.setVisibility(View.GONE);
@@ -3024,7 +3029,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         public void tickerHalting() {
-            if (!mTickerEnabled) return;
+            if (!mTickerEnabled || !mTickerEnabler) return;
             if (mStatusBarContents.getVisibility() != View.VISIBLE) {
                 mStatusBarContents.setVisibility(View.VISIBLE);
                 mCenterClockLayout.setVisibility(View.VISIBLE);
@@ -3066,7 +3071,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             pw.println("  mExpandedVisible=" + mExpandedVisible
                     + ", mTrackingPosition=" + mTrackingPosition);
             pw.println("  mTickerEnabled=" + mTickerEnabled);
-            if (mTickerEnabled) {
+            if (mTickerEnabled && mTickerEnabler) {
                 pw.println("  mTicking=" + mTicking);
                 pw.println("  mTickerView: " + viewInfo(mTickerView));
             }
@@ -3392,6 +3397,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0,
                         UserHandle.USER_CURRENT) == 1;
 
+        mTickerEnabler = Settings.System.getIntForUser(resolver,
+                Settings.System.ENABLE_TICKER, 0, UserHandle.USER_CURRENT) != 0;
+
         mClockEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK, 1, UserHandle.USER_CURRENT) != 0;
         updateClockVisibility();
@@ -3594,7 +3602,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     @Override
     protected void haltTicker() {
-        if (mTickerEnabled) {
+        if (mTickerEnabled  && mTickerEnabler) {
             mTicker.halt();
         }
     }

@@ -3059,6 +3059,11 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_WEATHER = "status_bar_show_weather";
 
         /**
+         * Boolean value to enable or disable statusbar ticker
+         */
+        public static final String ENABLE_TICKER = "enable_ticker";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
