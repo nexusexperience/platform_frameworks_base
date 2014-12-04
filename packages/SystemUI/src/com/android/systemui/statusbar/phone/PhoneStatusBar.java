@@ -357,6 +357,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private View mTickerView;
     private boolean mTicking;
 
+    //headsup
+    private boolean mHeadsUpEnabled;
+    private boolean mHeadsUpforAll;
+
     // Tracking finger for opening/closing.
     int mEdgeBorder; // corresponds to R.dimen.status_bar_edge_ignore
     boolean mTracking;
@@ -421,6 +425,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ENABLE_TICKER), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ENABLE_HEADSUP), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADSUP_FOR_ALL), false, this,
+                    UserHandle.USER_ALL);
+
             updateSettings();
         }
 
@@ -461,7 +472,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         @Override
         public void onChange(boolean selfChange) {
             boolean wasUsing = mUseHeadsUp;
-            mUseHeadsUp = ENABLE_HEADS_UP && !mDisableNotificationAlerts
+            mUseHeadsUp = ENABLE_HEADS_UP && mHeadsUpEnabled && !mDisableNotificationAlerts
                     && Settings.Global.HEADS_UP_OFF != Settings.Global.getInt(
                     mContext.getContentResolver(), Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
                     Settings.Global.HEADS_UP_OFF);
@@ -1378,7 +1389,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     @Override
     public void addNotification(StatusBarNotification notification, RankingMap ranking) {
         if (DEBUG) Log.d(TAG, "addNotification key=" + notification.getKey());
-        if (mUseHeadsUp && shouldInterrupt(notification)) {
+        if (mUseHeadsUp && shouldInterrupt(notification) || mHeadsUpforAll) {
             if (DEBUG) Log.d(TAG, "launching notification in heads up mode");
             Entry interruptionCandidate = new Entry(notification, null);
             ViewGroup holder = mHeadsUpNotificationView.getHolder();
@@ -3399,6 +3410,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mTickerEnabler = Settings.System.getIntForUser(resolver,
                 Settings.System.ENABLE_TICKER, 0, UserHandle.USER_CURRENT) != 0;
+
+        mHeadsUpEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.ENABLE_HEADSUP, 1, UserHandle.USER_CURRENT) != 0;
+
+        mHeadsUpforAll = Settings.System.getIntForUser(resolver,
+                Settings.System.HEADSUP_FOR_ALL, 0, UserHandle.USER_CURRENT) != 0;
 
         mClockEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK, 1, UserHandle.USER_CURRENT) != 0;

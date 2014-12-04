@@ -3064,6 +3064,16 @@ public final class Settings {
         public static final String ENABLE_TICKER = "enable_ticker";
 
         /**
+         * Boolean value to enable or disable headsup
+         */
+        public static final String ENABLE_HEADSUP = "enable_headsup";
+
+        /**
+         * Boolean value to enable or disable headsup for all applications
+         */
+        public static final String HEADSUP_FOR_ALL = "headsup_for_all";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
