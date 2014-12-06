@@ -485,6 +485,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mAssistKeyLongPressed;
     boolean mPendingMetaAction;
 
+    boolean mHeadsup;
+
     // support for activating the lock screen while the screen is on
     boolean mAllowLockscreenWhenOn;
     int mLockScreenTimeout;
@@ -657,6 +659,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USE_EDGE_SERVICE_FOR_GESTURES), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ENABLE_HEADSUP), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -1414,6 +1419,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
                 updateEdgeGestureListenerState();
             }
+
+            // Incoming Call as headsup.
+            mHeadsup = Settings.System.getIntForUser(resolver,
+                    Settings.System.ENABLE_HEADSUP, 1, UserHandle.USER_CURRENT) == 1;
 
             // Configure rotation lock.
             int userRotation = Settings.System.getIntForUser(resolver,
@@ -2385,8 +2394,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // If an incoming call is ringing, HOME is totally disabled.
                 // (The user is already on the InCallUI at this point,
                 // and his ONLY options are to answer or reject the call.)
+                final boolean isCallInHeadsup = mHeadsup
+                        && isScreenOn() && !keyguardIsShowingTq();
                 TelecomManager telecomManager = getTelecommService();
-                if (telecomManager != null && telecomManager.isRinging()) {
+                if (telecomManager != null && telecomManager.isRinging()
+                            && !isCallInHeadsup) {
                     Log.i(TAG, "Ignoring HOME; there's a ringing incoming call.");
                     return -1;
                 }
