@@ -19,16 +19,16 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="reboot_title">重新啟動手機</string>
-  <string name="reboot_confirm" product="tablet">您的平板將會重新啟動。</string>
-  <string name="reboot_confirm" product="default">您的手機將會重新啟動。</string>
-  <string name="reboot_progress">正在重新啟動...</string>
-  <string name="global_action_reboot">重新啟動</string>
-  <string name="progress_nomediapresent" product="default">沒有可卸載式媒體</string>
-  <string name="reboot_reboot">重新啟動</string>
-  <string name="reboot_recovery">Recovery 模式</string>
-  <string name="reboot_bootloader">Bootloader 模式</string>
-  <string name="reboot_download">下載</string>
-  <string name="reboot_soft">快速重新啟動</string>
-  <string name="app_killed_message">結束應用程式</string>
+  <string name="reboot_title">Genstart</string>
+  <string name="reboot_confirm" product="tablet">Din tablet vil genstarte.</string>
+  <string name="reboot_confirm" product="default">Din telefon vil nu genstarte.</string>
+  <string name="reboot_progress">Genstarter</string>
+  <string name="global_action_reboot">Genstart</string>
+  <string name="progress_nomediapresent" product="default">Intet flytbart medie tilstede</string>
+  <string name="reboot_reboot">Genstart</string>
+  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_download">Download</string>
+  <string name="reboot_soft">Blød genstart</string>
+  <string name="app_killed_message">Program stoppet</string>
 </resources>

@@ -20,4 +20,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="screenshot_delete_confirmation">Captura de pantalla eliminada</string>
   <string name="clear_recents">Borrar todo</string>
+  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s </xliff:g> - <xliff:g id="condition">%2$s </xliff:g></string>
 </resources>

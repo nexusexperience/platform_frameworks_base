@@ -22,6 +22,13 @@
   <string name="reboot_title">Uruchom ponownie</string>
   <string name="reboot_confirm" product="tablet">Twój tablet zostanie uruchomiony ponownie.</string>
   <string name="reboot_confirm" product="default">Twój telefon zostanie uruchomiony ponownie.</string>
+  <string name="reboot_progress">Ponowne uruchamianie</string>
   <string name="global_action_reboot">Uruchom ponownie</string>
   <string name="progress_nomediapresent" product="default">Brak karty pamięci</string>
+  <string name="reboot_reboot">Uruchom ponownie</string>
+  <string name="reboot_recovery">Tryb recovery</string>
+  <string name="reboot_bootloader">Tryb bootloadera</string>
+  <string name="reboot_download">Tryb download</string>
+  <string name="reboot_soft">Szybkie uruchomienie ponowne</string>
+  <string name="app_killed_message">Aplikacja zamknięta</string>
 </resources>

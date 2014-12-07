@@ -22,6 +22,13 @@
   <string name="reboot_title">Khởi động lại</string>
   <string name="reboot_confirm" product="tablet">Máy tính bảng sẽ khởi động lại.</string>
   <string name="reboot_confirm" product="default">Điện thoại của bạn sẽ khởi động lại.</string>
+  <string name="reboot_progress">Đang khởi động lại\u2026</string>
   <string name="global_action_reboot">Khởi động lại</string>
   <string name="progress_nomediapresent" product="default">Không có dữ liệu có thể xóa\u2026</string>
+  <string name="reboot_reboot">Khởi động lại</string>
+  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_download">Download</string>
+  <string name="reboot_soft">Khởi động lại nhanh</string>
+  <string name="app_killed_message">Đã tắt ứng dụng</string>
 </resources>

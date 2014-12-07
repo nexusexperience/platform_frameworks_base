@@ -18,7 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="screenshot_delete_confirmation">Screenshot verwijderd</string>
-  <string name="clear_recents">Sluit alle recente apps</string>
+  <string name="screenshot_delete_confirmation">Скріншот видалено</string>
+  <string name="clear_recents">Закрити всі запущені</string>
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
 </resources>
