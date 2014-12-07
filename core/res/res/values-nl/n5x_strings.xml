@@ -22,6 +22,13 @@
   <string name="reboot_title">Herstarten</string>
   <string name="reboot_confirm" product="tablet">Je tablet zal opnieuw opstarten.</string>
   <string name="reboot_confirm" product="default">Uw telefoon zal opnieuw opstarten.</string>
+  <string name="reboot_progress">Herstarten..\u2026</string>
   <string name="global_action_reboot">Herstarten</string>
   <string name="progress_nomediapresent" product="default">Geen verwisselbare media aanwezig</string>
+  <string name="reboot_reboot">Herstarten</string>
+  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_download">Download</string>
+  <string name="reboot_soft">Soft reboot</string>
+  <string name="app_killed_message">Applicatie afgesloten</string>
 </resources>

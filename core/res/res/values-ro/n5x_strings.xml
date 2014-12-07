@@ -22,6 +22,13 @@
   <string name="reboot_title">Repornire</string>
   <string name="reboot_confirm" product="tablet">Tableta va reporni.</string>
   <string name="reboot_confirm" product="default">Telefonul va reporni.</string>
+  <string name="reboot_progress">Repornire</string>
   <string name="global_action_reboot">Repornire</string>
   <string name="progress_nomediapresent" product="default">Nici un dispozitiv media prezent</string>
+  <string name="reboot_reboot">Repornirea sistemului</string>
+  <string name="reboot_recovery">Recuperare</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_download"> Descărcare</string>
+  <string name="reboot_soft">Repornirea sistemului</string>
+  <string name="app_killed_message">Inchide aplicatia</string>
 </resources>
