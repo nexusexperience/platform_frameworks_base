@@ -1411,8 +1411,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     @Override
     public void addNotification(StatusBarNotification notification, RankingMap ranking) {
+        final boolean keyguardShowing = mStatusBarKeyguardViewManager.isShowing();
         if (DEBUG) Log.d(TAG, "addNotification key=" + notification.getKey());
-        if (mUseHeadsUp && shouldInterrupt(notification) || mHeadsUpforAll) {
+        if (mUseHeadsUp && shouldInterrupt(notification) || mHeadsUpforAll && mScreenOn && !keyguardShowing) {
             if (DEBUG) Log.d(TAG, "launching notification in heads up mode");
             Entry interruptionCandidate = new Entry(notification, null);
             ViewGroup holder = mHeadsUpNotificationView.getHolder();
