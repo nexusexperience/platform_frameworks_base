@@ -4728,7 +4728,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Basic policy based on interactive state.
         final boolean isVolumeWakeKey = !isScreenOn()
                 && mVolumeWakeScreen
-                && !down
+                && !isMusicActive()
                 && (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN);
         int result;
         boolean isWakeKey = (policyFlags & WindowManagerPolicy.FLAG_WAKE) != 0
