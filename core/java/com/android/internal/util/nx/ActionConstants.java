@@ -16,7 +16,7 @@
 
 package com.android.internal.util.nx;
 
-public class nxActionConstants {
+public class ActionConstants {
 
     // key must fit with the values arrays from Settings to use
     // SlimActions.java actions
