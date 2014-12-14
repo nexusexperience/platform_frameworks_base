@@ -3112,6 +3112,18 @@ public final class Settings {
         public static final String HEADSUP_FOR_ALL = "headsup_for_all";
 
         /**
+         * Display style of the status bar battery information
+         * 0: Display the battery an icon in portrait mode
+         * 2: Display the battery as a circle
+         * 4: Hide the battery status information
+         * 5: Display the battery an icon in landscape mode
+         * 6: Display the battery as plain text
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+
+        /**
          * Status bar battery %
          * 0: Hide the battery percentage
          * 1: Display the battery percentage inside the icon
@@ -3189,6 +3201,7 @@ public final class Settings {
             INCREASING_RING,
             INCREASING_RING_START_VOLUME,
             INCREASING_RING_RAMP_UP_TIME,
+            STATUS_BAR_BATTERY_STYLE,
             STATUS_BAR_SHOW_BATTERY_PERCENT
         };
 
