@@ -360,8 +360,9 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             mClearRecents.setOutlineProvider(new ViewOutlineProvider() {
                 @Override
                 public void getOutline(View view, Outline outline) {
+                    int size = getResources().getDimensionPixelSize(R.dimen.fab_size);
                     // Set the outline to match the FAB background
-                    outline.setOval(0, 0, mClearRecents.getWidth(), mClearRecents.getHeight());
+                    outline.setOval(0, 0, size, size);
                 }
             });
         }

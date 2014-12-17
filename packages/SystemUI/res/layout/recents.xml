@@ -39,21 +39,7 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent" />
 
-    <FrameLayout
-        android:id="@+id/clear_recents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:translationZ="5dp" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/clear_recents" />
-
-    </FrameLayout>
-
+    <include layout="@layout/fab" />
 
     <!-- Debug Overlay View -->
     <ViewStub android:id="@+id/debug_overlay_stub"
