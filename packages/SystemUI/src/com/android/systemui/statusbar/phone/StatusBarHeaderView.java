@@ -33,7 +33,6 @@ import android.graphics.Outline;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
 import android.os.Handler;
