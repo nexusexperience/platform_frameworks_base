@@ -2103,6 +2103,12 @@ public final class Settings {
                 "lockscreen_shortcuts_longpress";
 
         /**
+         * Timeout for ambient display notification
+         * @hide
+         */
+        public static final String DOZE_TIMEOUT = "doze_timeout";
+
+        /**
          * Defines the status and navigation bar color is battery safe mode is enabled.
          *
          * @hide
