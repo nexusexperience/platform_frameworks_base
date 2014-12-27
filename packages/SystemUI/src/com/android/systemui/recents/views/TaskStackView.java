@@ -507,9 +507,7 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
     }
 
     public void clearRecents() {
-        int stackSize = mStack.getTasks().size();
-        if(stackSize > 1) stackSize--;
-        final int count = stackSize;
+        final int count = mStack.getTasks().size();
         final ArrayList<Task> tasks = mStack.getTasks();
         post(new Runnable() {
             @Override
