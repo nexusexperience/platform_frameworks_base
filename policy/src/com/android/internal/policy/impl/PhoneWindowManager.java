@@ -2658,7 +2658,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // (The user is already on the InCallUI at this point,
                 // and his ONLY options are to answer or reject the call.)
                 final boolean isCallInHeadsup = mHeadsup
-                        && isScreenOn() && !keyguardIsShowingTq();
+                        && isScreenOn() && !isKeyguardShowingAndNotOccluded();
                 TelecomManager telecomManager = getTelecommService();
                 if (telecomManager != null && telecomManager.isRinging()
                             && !isCallInHeadsup) {

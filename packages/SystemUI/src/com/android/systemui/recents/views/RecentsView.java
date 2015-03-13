@@ -393,8 +393,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         // Animate the action button in
         mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
         mClearRecents.animate().alpha(1f)
-                .setStartDelay(mConfig.taskBarEnterAnimDelay)
-                .setDuration(mConfig.taskBarEnterAnimDuration)
                 .setInterpolator(mConfig.fastOutLinearInInterpolator)
                 .withLayer()
                 .start();
@@ -405,7 +403,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
         mClearRecents.animate().alpha(0f)
                 .setStartDelay(0)
-                .setDuration(mConfig.taskBarExitAnimDuration)
                 .setInterpolator(mConfig.fastOutLinearInInterpolator)
                 .withLayer()
                 .start();
