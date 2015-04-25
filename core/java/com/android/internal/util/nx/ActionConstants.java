@@ -83,20 +83,6 @@ public class ActionConstants {
         + ICON_EMPTY;
 
     public static final String PIE_SECOND_LAYER_CONFIG_DEFAULT =
-          ACTION_POWER_MENU    + ACTION_DELIMITER
-        + ACTION_NULL          + ACTION_DELIMITER
-        + ICON_EMPTY           + ACTION_DELIMITER
-        + ACTION_NOTIFICATIONS + ACTION_DELIMITER
-        + ACTION_NULL          + ACTION_DELIMITER
-        + ICON_EMPTY           + ACTION_DELIMITER
-        + ACTION_SEARCH        + ACTION_DELIMITER
-        + ACTION_NULL          + ACTION_DELIMITER
-        + ICON_EMPTY           + ACTION_DELIMITER
-        + ACTION_SCREENSHOT    + ACTION_DELIMITER
-        + ACTION_NULL          + ACTION_DELIMITER
-        + ICON_EMPTY           + ACTION_DELIMITER
-        + ACTION_IME           + ACTION_DELIMITER
-        + ACTION_NULL          + ACTION_DELIMITER
-        + ICON_EMPTY;
+          ICON_EMPTY;
 
 }
