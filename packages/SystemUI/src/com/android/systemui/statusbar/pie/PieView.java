@@ -623,12 +623,7 @@ public class PieView extends View implements View.OnTouchListener {
                         - estimatedWidth / 2));
             }
         } else { /* EdgeGesturePosition.BOTTOM | EdgeGesturePosition.TOP */
-            if (estimatedWidth * 1.3f > getWidth()) {
-                mCenter.x = getWidth() / 2;
-            } else {
-                mCenter.x = (int) (Math.min(Math.max(estimatedWidth / 2, mCenter.x), getWidth()
-                        - estimatedWidth / 2));
-            }
+            mCenter.x = getWidth() / 2;
             mCenter.y = mPadding + (int) ((getHeight() - 2 * mPadding) * mPosition.FACTOR);
         }
 

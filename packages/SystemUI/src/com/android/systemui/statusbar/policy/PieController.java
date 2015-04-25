@@ -575,10 +575,10 @@ public class PieController implements BaseStatusBar.NavigationBarCallback, PieVi
         Drawable dResized = ImageHelper.resize(
                 mContext, dOriginal, Converter.pxToDp(mContext, (int) (size * mIconResizeFactor)));
         if (d == null) {
-            view.setImageDrawable(dResized);
+            view.setImageDrawable(dOriginal);
             return null;
         } else {
-            return (dResized);
+            return (dOriginal);
         }
     }
 
