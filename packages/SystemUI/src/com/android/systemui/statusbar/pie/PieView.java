@@ -357,7 +357,7 @@ public class PieView extends View implements View.OnTouchListener {
 
     private void setupSnapPoints(int width, int height) {
         if (Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PIE_SHOW_SNAP, 1,
+                Settings.System.PIE_SHOW_SNAP, 0,
                 UserHandle.USER_CURRENT) == 0) {
             mActiveSnap = null;
             for (EdgeGesturePosition g : EdgeGesturePosition.values()) {
